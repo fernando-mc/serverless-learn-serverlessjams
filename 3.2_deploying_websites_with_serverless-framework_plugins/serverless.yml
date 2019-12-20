@@ -1,0 +1,20 @@
+service: serverlessjams
+app: serverlessjams
+org: serverlesslearn
+
+provider:
+  name: aws
+  runtime: python3.7
+  
+functions:
+  hello:
+    handler: handler.hello
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: fernandotest-12trafsd213
+    distributionFolder: frontend
+    errorDocument: index.html
