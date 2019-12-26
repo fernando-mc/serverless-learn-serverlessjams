@@ -4,8 +4,8 @@ $(document).ready(function(){
   document.getElementsByClassName("ui red button")[0].addEventListener("click", recordVote);
 });
 
-var vote_endpoint = "https://rt1j5banva.execute-api.us-east-1.amazonaws.com/dev/song/vote"
-var get_votes_endpoint = "https://rt1j5banva.execute-api.us-east-1.amazonaws.com/dev/votes"
+var vote_endpoint = "https://EXAMPLE_REPLACE_ME.execute-api.us-east-1.amazonaws.com/dev/song/vote"
+var get_votes_endpoint = "https://EXAMPLE_REPLACE_ME.execute-api.us-east-1.amazonaws.com/dev/votes"
 
 function setVotes(songName, voteCount) {
   // Get div containing vote count and set the new voteCount
