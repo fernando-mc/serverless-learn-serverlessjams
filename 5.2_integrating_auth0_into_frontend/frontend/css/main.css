@@ -1,0 +1,12 @@
+.hidden {
+  display: none;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+body {
+  background: #1B1C1D;
+}
