@@ -1,6 +1,6 @@
-service: serverlessjams
+org: yourorg
 app: serverlessjams
-org: serverlesslearn
+service: serverlessjams
 
 provider:
   name: aws
