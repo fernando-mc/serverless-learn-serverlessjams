@@ -4,8 +4,8 @@ $(document).ready(function(){
     document.getElementsByClassName("ui red button")[0].addEventListener("click", recordVote);
 });
 
-var vote_endpoint = "https://yt5txso72i.execute-api.us-east-1.amazonaws.com/dev/song/vote"
-var get_votes_endpoint = "https://yt5txso72i.execute-api.us-east-1.amazonaws.com/dev/votes"
+var vote_endpoint = "https://EXAMPLE_REPLACE_ME.execute-api.us-east-1.amazonaws.com/dev/song/vote"
+var get_votes_endpoint = "https://EXAMPLE_REPLACE_ME.execute-api.us-east-1.amazonaws.com/dev/votes"
 
 function setVotes(songName, voteCount) {
   // Get div containing vote count and set the new voteCount
@@ -19,8 +19,12 @@ async function refreshVoteCounts() {
     // Iterate over all three songs and update the divs
     var i;
     for (i = 0; i < songs.length; i++){
-        var song = songs[i]
+      var featured_songs = ["coderitis", "stateless", "dynamo"];
+      var song = songs[i]
+      if (featured_songs.includes(song["songName"])){
+        console.log(song)
         setVotes(song["songName"], song["votes"])
+      }
     }
 }
 
