@@ -7,7 +7,8 @@ const configureClient = async () => {
 
   auth0 = await createAuth0Client({
     domain: config.domain,
-    client_id: config.clientId
+    audience: config.audience,
+    client_id: config.clientId,
   });
 };
 
@@ -21,10 +22,10 @@ const updateUI = async () => {
     document.getElementById("gated-content-1").classList.remove("hidden");
     document.getElementById("gated-content-2").classList.remove("hidden");
 
-    const authZeroToken = await auth0.getTokenSilently();
-    const pictureUrl = await auth0.getUser()
+    const claims = await auth0.getIdTokenClaims()
+    const pictureUrl = claims.picture
     
-    document.getElementById("avatar-img").src = pictureUrl["picture"] || 'https://icon-library.net/images/icon-of-music/icon-of-music-8.jpg';
+    document.getElementById("avatar-img").src = pictureUrl || 'https://icon-library.net/images/icon-of-music/icon-of-music-8.jpg';
     document.getElementById("avatar-img-div").classList.remove("hidden")
 
   } else {

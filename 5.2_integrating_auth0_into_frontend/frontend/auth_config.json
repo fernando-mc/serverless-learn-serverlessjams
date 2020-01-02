@@ -1,4 +1,5 @@
 {
     "domain": "EXAMPLE_REPLACE_ME.auth0.com",
-    "clientId": "EXAMPLE_ID_REPLACE_ME"
+    "clientId": "REPLACE_ME",
+    "audience": "REPLACE_ME"
 }
