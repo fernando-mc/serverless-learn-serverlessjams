@@ -10,7 +10,7 @@ provider:
   region: us-east-1
   environment:
     DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}-voteCounts
-    AUTH0_DOMAIN: fmcserverless.auth0.com
+    AUTH0_DOMAIN: EXAMPLE_REPLACE_ME.auth0.com
     AUTH0_API_ID: serverlessjamsapi
   iamRoleStatements:
     - Effect: Allow
