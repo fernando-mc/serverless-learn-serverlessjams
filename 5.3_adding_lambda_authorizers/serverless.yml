@@ -9,9 +9,9 @@ provider:
   runtime: python3.7
   region: us-east-1
   environment:
-    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}-voteCounts
+    DYNAMODB_TABLE: serverlessjams-voteCounts
     AUTH0_DOMAIN: EXAMPLE_REPLACE_ME.auth0.com
-    AUTH0_API_ID: serverlessjamsapi
+    AUTH0_API_ID: EXAMPLE_REPLACE_ME
   iamRoleStatements:
     - Effect: Allow
       Action:
