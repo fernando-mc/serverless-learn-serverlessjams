@@ -1,3 +1,4 @@
+import os
 import requests
 
 from get_token import get_token
@@ -14,7 +15,7 @@ def handler(event, context):
     print(id_token)
     userinfo = requests.get(
         'https://' + AUTH0_DOMAIN + '/userinfo', 
-        headers={"Authorization": "Bearer " + id_token}
+        headers={"Authorization": "Bearer " + token}
     ).json()
     if id_token and userinfo['email_verified']:
         policy = generate_policy(
