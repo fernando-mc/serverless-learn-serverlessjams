@@ -1,5 +1,10 @@
+import requests
+
 from get_token import get_token
 from verify_token import verify_token
+
+AUTH0_DOMAIN = os.environ.get("AUTH0_DOMAIN")
+
 
 def handler(event, context):
     print(event)
@@ -7,16 +12,18 @@ def handler(event, context):
     token = get_token(event)
     id_token = verify_token(token)
     print(id_token)
-    if id_token and id_token.get('permissions'):
-        scopes = '|'.join(id_token['permissions'])
+    userinfo = requests.get(
+        'https://' + AUTH0_DOMAIN + '/userinfo', 
+        headers={"Authorization": "Bearer " + id_token}
+    ).json()
+    if id_token and userinfo['email_verified']:
         policy = generate_policy(
             id_token['sub'], 
             'Allow', 
-            event['methodArn'],
-            scopes=scopes
+            event['methodArn']
         )
         return policy
-    else: 
+    else:
         policy = generate_policy(
             id_token['sub'],
             "Deny",
