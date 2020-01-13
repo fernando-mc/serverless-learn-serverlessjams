@@ -16,7 +16,7 @@ def handler(event, context):
             scopes=scopes
         )
         return policy
-    else: 
+    else:
         policy = generate_policy(
             id_token['sub'],
             "Deny",
